@@ -18,4 +18,11 @@ class ProjectController extends Controller
         $this->projectservice = $projectService;
     }
 
+    public function addProject(Request $request)
+    {
+        $this->projectservice->addProject($request);
+
+        return response()->json('add successfully', 200);
+    }
+
 }
