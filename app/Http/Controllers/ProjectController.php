@@ -22,21 +22,9 @@ class ProjectController extends BaseController
 
     public function store(ProjectRequest $request)
     {
-//        $validator = Validator::make($request->all(), [
-//            'name' => 'required',
-//            'information' => 'required',
-//            'deadline' => 'required',
-//            'type' => 'required',
-//            'status' => 'required',
-//            'is_active' => 'required'
-//        ]);
-//        if ($validator->fails()) {
-//            return $this->sendError('Validation Error.', $validator->errors());
-//        }
         $input = $request->all();
         $this->projectservice->addProject($input);
 
         return response()->json(__('message.successfully'), 200);
     }
-
 }
