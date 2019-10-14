@@ -11,7 +11,7 @@ class ProjectRepository implements ProjectServiceInterface
 
     public function addProject($request)
     {
-        return Project::create($request);
+        return Project::create($request->all());
     }
 
     public function editProject($request)

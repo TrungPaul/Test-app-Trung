@@ -28,13 +28,14 @@ Route::get('product/{id}','ProductController@show');
 Route::get('productsCate/{id}','ProductController@productsCate');
 
 // xóa sp
-Route::delete('product/{id}','ProductController@destroy');
+Route::delete('deleteProject/{id}','ProjectController@deleteProject');
 
 // cập nhật sp
 Route::put('product/{id}','ProductController@update');
 
 // tạo mới sp
 Route::post('addproject','ProjectController@addProject');
+Route::put('editproject/{id}','ProjectController@editProject');
 
 
 
