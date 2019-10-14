@@ -18,10 +18,4 @@ class ProjectController extends Controller
         $this->projectservice = $projectService;
     }
 
-    public function addProject(Request $request)
-    {
-        $project = $this->projectservice->addProject($request);
-
-        return $project;
-    }
 }
