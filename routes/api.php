@@ -25,7 +25,7 @@ Route::get('products','ProductController@index');
 Route::get('product/{id}','ProductController@show');
 
 // lấy sp theo danh muc
-Route::get('productsCate/{id}','ProductController@productsCate');
+Route::get('listproject','ProjectController@index');
 
 // xóa sp
 Route::delete('product/{id}','ProductController@destroy');

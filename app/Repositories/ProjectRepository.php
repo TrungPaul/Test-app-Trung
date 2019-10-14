@@ -26,6 +26,6 @@ class ProjectRepository implements ProjectServiceInterface
 
     public function showProject()
     {
-
+        return Project::where('is_active', 1)->get();
     }
 }
