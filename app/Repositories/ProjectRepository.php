@@ -9,9 +9,9 @@ use App\Project;
 class ProjectRepository implements ProjectServiceInterface
 {
 
-    public function addProject($request)
+    public function addProject($input)
     {
-        return Project::create($request->all());
+        return Project::create($input);
     }
 
     public function editProject($request)

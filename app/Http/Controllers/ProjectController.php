@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ProjectRequest;
 use Illuminate\Http\Request;
 use App\Interfaces\ProjectServiceInterface;
 use App\Repositories\ProjectRepository;
+use Validator;
 
-class ProjectController extends Controller
+class ProjectController extends BaseController
 {
     /**
      * @var ProjectServiceInterface
@@ -18,19 +20,23 @@ class ProjectController extends Controller
         $this->projectservice = $projectService;
     }
 
-    public function store(Request $request)
+    public function store(ProjectRequest $request)
     {
-        $validatedData = $request->validate([
-            'name' => 'required',
-            'information' => 'required',
-            'deadline' => 'required',
-            'type' => 'required',
-            'status' => 'required',
-            'is_active' => 'required'
-        ]);
-        $this->projectservice->addProject($request);
+//        $validator = Validator::make($request->all(), [
+//            'name' => 'required',
+//            'information' => 'required',
+//            'deadline' => 'required',
+//            'type' => 'required',
+//            'status' => 'required',
+//            'is_active' => 'required'
+//        ]);
+//        if ($validator->fails()) {
+//            return $this->sendError('Validation Error.', $validator->errors());
+//        }
+        $input = $request->all();
+        $this->projectservice->addProject($input);
 
-        return response()->json(__('messages.successfully'), 200);
+        return response()->json(__('message.successfully'), 200);
     }
 
 }
