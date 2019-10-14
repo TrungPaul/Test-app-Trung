@@ -34,7 +34,7 @@ Route::delete('product/{id}','ProductController@destroy');
 Route::put('product/{id}','ProductController@update');
 
 // tạo mới sp
-Route::post('addproject','ProjectController@addProject');
+Route::post('addproject','ProjectController@store');
 
 
 
