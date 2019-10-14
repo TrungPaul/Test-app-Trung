@@ -2,5 +2,5 @@
 return [
     'welcome' => 'Welcome to Website!',
     'hello' => 'Hello, :name',
-    'successful' => 'process is successful'
+    'successfully' => 'process is successful'
 ];

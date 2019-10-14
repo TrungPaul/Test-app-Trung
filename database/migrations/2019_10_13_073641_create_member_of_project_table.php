@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
+// @codingStandardsIgnoreLine
 class CreateMemberOfProjectTable extends Migration
 {
     /**
@@ -30,6 +31,6 @@ class CreateMemberOfProjectTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('member_of_project');
+        Schema::dropIfExists('joins');
     }
 }

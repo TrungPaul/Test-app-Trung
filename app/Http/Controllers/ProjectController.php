@@ -20,9 +20,17 @@ class ProjectController extends Controller
 
     public function store(Request $request)
     {
+        $validatedData = $request->validate([
+            'name' => 'required',
+            'information' => 'required',
+            'deadline' => 'required',
+            'type' => 'required',
+            'status' => 'required',
+            'is_active' => 'required'
+        ]);
         $this->projectservice->addProject($request);
 
-        return response()->json('successfully', 200);
+        return response()->json(__('messages.successfully'), 200);
     }
 
 }
