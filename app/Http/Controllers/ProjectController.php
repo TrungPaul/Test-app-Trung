@@ -43,4 +43,11 @@ class ProjectController extends BaseController
 
         return response()->json($showProject);
     }
+
+    public function destroy($projectId)
+    {
+        $this->projectservice->removeProject($projectId);
+
+        return response()->json(__('message.successfully'), 200);
+    }
 }

@@ -24,7 +24,7 @@ class ProjectRepository implements ProjectServiceInterface
 
     public function removeProject($projectId)
     {
-        //
+        return Project::where('id', $projectId)->delete();
     }
 
     public function showProject()
