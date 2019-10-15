@@ -38,10 +38,6 @@ class ProjectController extends BaseController
         return response()->json(__('message.successfully'), 200);
     }
 
-    public function destroy()
-    {
-
-    }
     public function index()
     {
         $showProject = $this->projectservice->showProject();
