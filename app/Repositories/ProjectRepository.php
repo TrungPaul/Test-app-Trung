@@ -19,10 +19,10 @@ class ProjectRepository implements ProjectServiceInterface
 
     public function editProject($input, $projectId)
     {
-        return Project::find($projectId)->update($input);
+        return Project::where('id',$projectId)->update($input);
     }
 
-    public function deleteProject($projectId)
+    public function removeProject($projectId)
     {
 
     }
