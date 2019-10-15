@@ -2,10 +2,10 @@
 
 use Illuminate\Http\Request;
 
-Route::put('projects/{id}/edit', 'ProjectController@update');
+Route::put('projects/{projectId}/edit', 'ProjectController@update');
 Route::get('projects','ProjectController@index');
 Route::post('projects/add','ProjectController@store');
-Route::get('projects/{id}/delete','ProjectController@destroy');
+Route::get('projects/{projectId}/delete','ProjectController@destroy');
 
 
 

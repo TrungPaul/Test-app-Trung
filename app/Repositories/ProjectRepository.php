@@ -17,12 +17,12 @@ class ProjectRepository implements ProjectServiceInterface
         return Project::create($input);
     }
 
-    public function editProject($input, $id)
+    public function editProject($input, $projectId)
     {
-        return Project::find($id)->update($input);
+        return Project::find($projectId)->update($input);
     }
 
-    public function deleteProject($id)
+    public function deleteProject($projectId)
     {
 
     }
