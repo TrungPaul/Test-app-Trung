@@ -3,7 +3,7 @@
 use Illuminate\Http\Request;
 
 Route::get('projects','ProjectController@index');
-Route::post('project/add','ProjectController@store');
+Route::post('projects/add','ProjectController@store');
 
 
 

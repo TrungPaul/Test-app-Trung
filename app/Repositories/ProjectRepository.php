@@ -11,6 +11,7 @@ class ProjectRepository implements ProjectServiceInterface
    const IS_ACTIVE_ON = 1;
    const IS_ACTIVE_OFF = 0;
    // IS_ACTIVE = 1 -> PROJECT IS ACTIVE AND = 0 PROJECT IS OFF
+
     public function addProject($input)
     {
         return Project::create($input);
