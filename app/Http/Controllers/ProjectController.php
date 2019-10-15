@@ -28,6 +28,15 @@ class ProjectController extends BaseController
         return response()->json(__('message.successfully'), 200);
     }
 
+
+    public function update(ProjectRequest $request, $projectId)
+    {
+        $input = $request->all();
+        $this->projectservice->editProject($input, $projectId);
+
+        return response()->json(__('message.successfully'), 200);
+    }
+
     public function index()
     {
         $showProject = $this->projectservice->showProject();
