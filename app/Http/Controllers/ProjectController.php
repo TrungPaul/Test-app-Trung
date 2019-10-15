@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ProjectRequest;
+use App\Project;
 use Illuminate\Http\Request;
 use App\Interfaces\ProjectServiceInterface;
 use App\Repositories\ProjectRepository;
@@ -26,5 +27,18 @@ class ProjectController extends BaseController
         $this->projectservice->addProject($input);
 
         return response()->json(__('message.successfully'), 200);
+    }
+
+    public function update(ProjectRequest $request ,$id)
+    {
+        $input = $request->all();
+        $this->projectservice->editProject($input, $id);
+
+        return response()->json(__('message.successfully'), 200);
+    }
+
+    public function destroy()
+    {
+
     }
 }
