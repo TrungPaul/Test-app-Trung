@@ -29,7 +29,8 @@ class ProjectController extends BaseController
         return response()->json(__('message.successfully'), 200);
     }
 
-    public function update(ProjectRequest $request ,$id)
+
+    public function update(ProjectRequest $request, $id)
     {
         $input = $request->all();
         $this->projectservice->editProject($input, $id);
@@ -40,5 +41,11 @@ class ProjectController extends BaseController
     public function destroy()
     {
 
+    }
+    public function index()
+    {
+        $showProject = $this->projectservice->showProject();
+
+        return response()->json($showProject);
     }
 }
