@@ -18,7 +18,7 @@ class CreateProjectsTable extends Migration
             $table->bigIncrements('id');
             $table->string('name');
             $table->string('information');
-            $table->date('deadline');
+            $table->string('deadline');
             $table->string('type');
             $table->integer('status');
             $table->integer('is_active');
