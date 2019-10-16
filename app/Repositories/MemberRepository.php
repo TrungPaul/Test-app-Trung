@@ -10,7 +10,7 @@ class MemberRepository implements MemberServiceInterface
 
     public function showMember()
     {
-        // TODO: Implement showMember() method.
+        return Member::all();
     }
 
     public function addMember($input)
@@ -28,3 +28,4 @@ class MemberRepository implements MemberServiceInterface
         // TODO: Implement removeMember() method.
     }
 }
+
