@@ -10,8 +10,7 @@ class Member extends Model
     protected $fillable = [
         'name',
         'information',
-        'phone_number',
-        'date_of_birth',
+        'BoD',
         'avatar',
         'position',
         'gender'
