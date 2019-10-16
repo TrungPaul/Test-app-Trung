@@ -2,11 +2,13 @@
 
 use Illuminate\Http\Request;
 
-Route::put('projects/{projectId}/edit', 'ProjectController@update');
-Route::get('projects','ProjectController@index');
-Route::post('projects/add','ProjectController@store');
-Route::delete('projects/{projectId}/delete', 'ProjectController@destroy');
+Route::group((['prefix' => 'projects']), function () {
+    Route::put('{projectId}/edit', 'ProjectController@update');
+    Route::get('/','ProjectController@index');
+    Route::post('add','ProjectController@store');
+    Route::delete('{projectId}/delete', 'ProjectController@destroy');
+});
 
-
-
-
+Route::group((['prefix' => 'members']), function () {
+    Route::get('/','MemberController@index');
+});
