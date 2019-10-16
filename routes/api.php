@@ -7,6 +7,8 @@ Route::get('projects','ProjectController@index');
 Route::post('projects/add','ProjectController@store');
 Route::delete('projects/{projectId}/delete', 'ProjectController@destroy');
 
+Route::get('members','MemberController@index');
+
 
 
 
