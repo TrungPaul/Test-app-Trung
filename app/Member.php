@@ -11,7 +11,7 @@ class Member extends Model
         'name',
         'information',
         'phone_number',
-        'BoD',
+        'date_of_birth',
         'avatar',
         'position',
         'gender'

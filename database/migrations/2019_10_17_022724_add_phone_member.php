@@ -25,6 +25,8 @@ class AddPhoneMember extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('members');
+        Schema::table('members', function ($table) {
+            $table->dropColumn('phone_number');
+        });
     }
 }
