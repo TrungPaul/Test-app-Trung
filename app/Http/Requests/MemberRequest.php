@@ -2,14 +2,14 @@
 
 namespace App\Http\Requests;
 
-use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Validation\ValidationException;
-use Illuminate\Http\JsonResponse;
 use Illuminate\Contracts\Validation\Validator;
+use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
-use Symfony\Component\HttpKernel\Exception\HttpException;
+use Illuminate\Http\JsonResponse;
+use Illuminate\Validation\ValidationException;
+use Carbon\Carbon;
 
-class ProjectRequest extends FormRequest
+class MemberRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -26,15 +26,17 @@ class ProjectRequest extends FormRequest
      *
      * @return array
      */
+
     public function rules()
     {
         return [
-            'name' => 'required|max:50|alphanumeric',
+            'name' => 'required|max:50',
             'information' => 'nullable|max:300',
-            'deadline' => 'required|before:today',
-            'type' => 'required',
-            'status' => 'required',
-            'is_active' => 'required'
+            'phone_number' => 'required|regex:/^([0-9\s\-\+\.\(\)]*)$/|max:20',
+            'date_of_birth' => 'required|after:-60 years|before:today',
+            'avatar' => 'nullable|image|mimes:jpeg,png,jpg,JPG,PNG,gif,svg|max:10000',
+            'position' => 'required',
+            'gender' => 'required'
         ];
     }
 

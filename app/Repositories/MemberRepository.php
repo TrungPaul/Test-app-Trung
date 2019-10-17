@@ -1,31 +1,42 @@
 <?php
+ namespace App\Repositories;
 
-namespace App\Repositories;
+ use App\Interfaces\MemberServiceInterface;
+ use App\Member;
+ use App\Repositories\UploadImageRepository;
 
-use App\Interfaces\MemberServiceInterface;
-use App\Member;
+ class MemberRepository implements MemberServiceInterface
+ {
+     public function __construct(UploadImageRepository  $uploadService)
+     {
+         $this->uploadService = $uploadService;
+     }
 
-class MemberRepository implements MemberServiceInterface
-{
-
-    public function showMember()
-    {
+     public function showMember()
+     {
         return Member::all();
-    }
+     }
+     public function addMember($dataMember)
+     {
+         $model = new Member;
+         $model->fill($dataMember);
+         if($model->avatar != null)
+         {
+             $image = $model->avatar;
+             $this->uploadService->uploadImage($image);
+         }
+         $model->save();
+     }
+     public function editMember($input, $projectId)
+     {
+         // TODO: Implement editMember() method.
+     }
+     public function removeMember($projectId)
+     {
+         // TODO: Implement removeMember() method.
+     }
+ }
 
-    public function addMember($input)
-    {
-        //
-    }
 
-    public function editMember($input, $memberId)
-    {
-        // TODO: Implement editMember() method.
-    }
 
-    public function removeMember($memberId)
-    {
-        // TODO: Implement removeMember() method.
-    }
-}
 

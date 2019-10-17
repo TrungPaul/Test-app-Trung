@@ -11,4 +11,5 @@ Route::group((['prefix' => 'projects']), function () {
 
 Route::group((['prefix' => 'members']), function () {
     Route::get('/','MemberController@index');
+    Route::post('add','MemberController@store');
 });
