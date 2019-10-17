@@ -30,7 +30,7 @@ class MemberRequest extends FormRequest
         return [
             'name' => 'required|max:50',
             'information' => 'nullable|max:300',
-            'phone_number' => 'required|regex:/^([0-9\s\-\+\(\)]*)$/|max:20',
+            'phone_number' => 'required|regex:/^([0-9\s\-\+\.\(\)]*)$/|max:20',
             'BoD' => 'required|after:1959-01-01|before:today',
             'avatar' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:10000',
             'position' => 'required',
