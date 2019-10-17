@@ -5,7 +5,7 @@ namespace App\Interfaces;
 interface MemberServiceInterface
 {
     public function showMember();
-    public function addMember($request);
-    public function editMember($input, $projectId);
-    public function removeMember($projectId);
+    public function addMember($input);
+    public function editMember($input, $memberId);
+    public function removeMember($memberId);
 }
