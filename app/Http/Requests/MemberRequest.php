@@ -34,7 +34,7 @@ class MemberRequest extends FormRequest
             'information' => 'nullable|max:300',
             'phone_number' => 'required|regex:/^([0-9\s\-\+\.\(\)]*)$/|max:20',
             'date_of_birth' => 'required|after:-60 years|before:today',
-            'avatar' => 'nullable|image|mimes:jpeg,png,jpg,JPG,PNG,gif,svg|max:10000',
+            'avatar' => 'nullable|mimes:jpeg,png,jpg,JPG,PNG,gif,svg|max:10000',
             'position' => 'required',
             'gender' => 'required'
         ];

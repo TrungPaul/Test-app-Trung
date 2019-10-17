@@ -23,13 +23,19 @@
          if($model->avatar != null)
          {
              $image = $model->avatar;
-             $this->uploadService->uploadImage($image);
+             $model->avatar = $this->uploadService->uploadImage($image);
          }
          $model->save();
      }
-     public function editMember($input, $projectId)
+     public function editMember($dataMember, $memberId)
      {
-         // TODO: Implement editMember() method.
+         $member = Member::find($memberId);
+         if (($dataMember['avatar']) != $member->avatar)
+         {
+             $image = $dataMember->avatar;
+             $this->uploadService->uploadImage($image);
+         }
+         return Member::where('id', $memberId)->update($dataMember);
      }
      public function removeMember($projectId)
      {
