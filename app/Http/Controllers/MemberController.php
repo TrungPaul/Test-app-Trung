@@ -26,4 +26,9 @@ class MemberController extends Controller
     {
         return response()->json($this->memberService->showMember());
     }
+
+    public function destroy($memberId)
+    {
+        $this->memberService->removeMember();
+    }
 }

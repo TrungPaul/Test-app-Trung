@@ -31,9 +31,9 @@
      {
          // TODO: Implement editMember() method.
      }
-     public function removeMember($projectId)
+     public function removeMember($memberId)
      {
-         // TODO: Implement removeMember() method.
+         return Member::where('id', $memberId )->delete();
      }
  }
 
