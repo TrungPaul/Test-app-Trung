@@ -25,6 +25,6 @@ class AddPhoneMember extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('members');
     }
 }

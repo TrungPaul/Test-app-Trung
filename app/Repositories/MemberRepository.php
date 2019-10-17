@@ -3,23 +3,29 @@
 
  use App\Interfaces\MemberServiceInterface;
  use App\Member;
+ use App\Repositories\UploadImageRepository;
 
  class MemberRepository implements MemberServiceInterface
  {
-     protected  $path = 'images/';
+     public function __construct(UploadImageRepository  $uploadService)
+     {
+         $this->uploadService = $uploadService;
+     }
+
      public function showMember()
      {
         return Member::all();
      }
-     public function addMember($request)
+     public function addMember($dataMember)
      {
-         $member = new Member;
-         $member->fill($request->all());
-         if($request->hasFile('avatar'))
+         $model = new Member;
+         $model->fill($dataMember);
+         if($model->avatar != null)
          {
-             $this->uploadImage($request,$member);
+             $image = $model->avatar;
+             $this->uploadService->uploadImage($image);
          }
-         $member->save();
+         $model->save();
      }
      public function editMember($input, $projectId)
      {
@@ -28,16 +34,6 @@
      public function removeMember($projectId)
      {
          // TODO: Implement removeMember() method.
-     }
-
-     public function uploadImage($request,$member)
-     {
-         $image = $request->avatar;
-         $extension = $image->getClientOriginalExtension();
-         $file_name = time().'-'.rand(1,100).'.'.$extension;
-         $image->move($this->path, $file_name);
-
-         return $member->avatar=asset($this->path.$file_name);
      }
  }
 

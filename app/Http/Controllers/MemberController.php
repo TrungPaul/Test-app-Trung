@@ -16,7 +16,9 @@ class MemberController extends Controller
 
     public function store(MemberRequest $request)
     {
-        $this->memberService->addMember($request);
+        $dataMember = $request->all();
+        $this->memberService->addMember($dataMember);
+
         return response()->json(__('message.successfully'), 200);
     }
 

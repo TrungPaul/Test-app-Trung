@@ -7,6 +7,7 @@ use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Validation\ValidationException;
+use Carbon\Carbon;
 
 class MemberRequest extends FormRequest
 {
@@ -25,14 +26,15 @@ class MemberRequest extends FormRequest
      *
      * @return array
      */
+
     public function rules()
     {
         return [
             'name' => 'required|max:50',
             'information' => 'nullable|max:300',
             'phone_number' => 'required|regex:/^([0-9\s\-\+\.\(\)]*)$/|max:20',
-            'BoD' => 'required|after:1959-01-01|before:today',
-            'avatar' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:10000',
+            'BoD' => 'required|after:-60 years|before:today',
+            'avatar' => 'nullable|image|mimes:jpeg,png,jpg,JPG,PNG,gif,svg|max:10000',
             'position' => 'required',
             'gender' => 'required'
         ];
