@@ -27,7 +27,7 @@ class MemberController extends Controller
         return response()->json($this->memberService->showMember());
     }
 
-    public function update(Request $request, $memberId)
+    public function update(MemberRequest $request, $memberId)
     {
         $dataMember = $request->all();
         $this->memberService->editMember($dataMember, $memberId);
