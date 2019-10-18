@@ -16,7 +16,7 @@
      {
         return Member::all();
      }
-     
+
      public function addMember($dataMember)
      {
          $model = new Member;
@@ -42,9 +42,9 @@
          return Member::where('id', $memberId)->update($dataMember);
      }
 
-     public function removeMember($projectId)
+     public function removeMember($memberId)
      {
-         // TODO: Implement removeMember() method.
+         return Member::where('id', $memberId )->delete();
      }
  }
 

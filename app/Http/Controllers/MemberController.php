@@ -9,7 +9,7 @@ use App\Http\Requests\MemberRequest;
 class MemberController extends Controller
 {
 
-    public function __construct(MemberServiceInterface  $memberService)
+    public function __construct(MemberServiceInterface $memberService)
     {
         $this->memberService = $memberService;
     }
@@ -34,4 +34,12 @@ class MemberController extends Controller
 
         return response()->json(__('message.successfully'), 200);
     }
+
+    public function destroy($memberId)
+    {
+        $this->memberService->removeMember($memberId);
+
+        return response()->json(__('message.successfully'), 200);
+    }
 }
+

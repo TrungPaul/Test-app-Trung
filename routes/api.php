@@ -13,4 +13,5 @@ Route::group((['prefix' => 'members']), function () {
     Route::get('/','MemberController@index');
     Route::post('add','MemberController@store');
     Route::put('{memberId}/edit','MemberController@update');
+    Route::delete('{memberId}/delete','MemberController@destroy');
 });
