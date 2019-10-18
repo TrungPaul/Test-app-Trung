@@ -16,7 +16,7 @@
      {
         return Member::all();
      }
-     
+
      public function addMember($dataMember)
      {
          $model = new Member;
@@ -24,14 +24,22 @@
          if($model->avatar != null)
          {
              $image = $model->avatar;
-             $this->uploadService->uploadImage($image);
+             $model->avatar = $this->uploadService->uploadImage($image);
          }
          $model->save();
      }
 
-     public function editMember($input, $projectId)
+     public function editMember($dataMember, $memberId)
      {
-         // TODO: Implement editMember() method.
+         $member = Member::find($memberId);
+         $member->fill($dataMember);
+         if (!empty($dataMember['avatar']))
+         {
+             $image = $dataMember['avatar'];
+             $dataMember['avatar'] = $this->uploadService->uploadImage($image);
+         }
+
+         return Member::where('id', $memberId)->update($dataMember);
      }
 
      public function removeMember($memberId)
