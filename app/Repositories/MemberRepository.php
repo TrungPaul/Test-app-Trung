@@ -7,7 +7,6 @@
 
  class MemberRepository implements MemberServiceInterface
  {
-     const CHECK_IMAGE = 0;
      public function __construct(UploadImageRepository  $uploadService)
      {
          $this->uploadService = $uploadService;
@@ -34,7 +33,7 @@
      {
          $member = Member::find($memberId);
          $member->fill($dataMember);
-         if ($member->avatar > self::CHECK_IMAGE)
+         if (!empty($dataMember['avatar']))
          {
              $image = $dataMember['avatar'];
              $dataMember['avatar'] = $this->uploadService->uploadImage($image);
