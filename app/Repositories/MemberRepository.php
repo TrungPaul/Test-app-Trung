@@ -16,6 +16,7 @@
      {
         return Member::all();
      }
+     
      public function addMember($dataMember)
      {
          $model = new Member;
@@ -27,13 +28,15 @@
          }
          $model->save();
      }
+
      public function editMember($input, $projectId)
      {
          // TODO: Implement editMember() method.
      }
-     public function removeMember($projectId)
+
+     public function removeMember($memberId)
      {
-         // TODO: Implement removeMember() method.
+         return Member::where('id', $memberId )->delete();
      }
  }
 
