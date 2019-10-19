@@ -29,9 +29,9 @@ class ProjectRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|max:50|alphanumeric',
+            'name' => 'required|max:50',
             'information' => 'nullable|max:300',
-            'deadline' => 'required|before:today',
+            'deadline' => 'required|after:today',
             'type' => 'required',
             'status' => 'required',
             'is_active' => 'required'
