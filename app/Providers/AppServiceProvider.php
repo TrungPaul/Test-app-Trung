@@ -6,6 +6,8 @@ use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Schema;
 use App\Interfaces\MemberServiceInterface;
 use App\Repositories\MemberRepository;
+use App\Interfaces\ProjectOfMemberServiceInterface;
+use App\Repositories\MemberProjectRepository;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -17,6 +19,7 @@ class AppServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app->singleton(MemberServiceInterface::class, MemberRepository::class);
+        $this->app->singleton(ProjectOfMemberServiceInterface::class, MemberProjectRepository::class);
     }
 
     /**

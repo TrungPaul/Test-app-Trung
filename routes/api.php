@@ -15,3 +15,7 @@ Route::group((['prefix' => 'members']), function () {
     Route::put('{memberId}/edit','MemberController@update');
     Route::delete('{memberId}/delete','MemberController@destroy');
 });
+
+Route::group((['prefix' => 'project-detail']), function () {
+    Route::get('/{projectId}','ProjectAndMember@index');
+});

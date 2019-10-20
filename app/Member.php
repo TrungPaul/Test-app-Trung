@@ -16,4 +16,9 @@ class Member extends Model
         'position',
         'gender'
     ];
+
+    public function join()
+    {
+        return $this->hasMany('App\ProjectAndMember');
+    }
 }

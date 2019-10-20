@@ -20,7 +20,7 @@ class CreateProjectsTable extends Migration
             $table->string('information')->nullable();
             $table->string('deadline');
             $table->string('type');
-            $table->integer('status');
+            $table->string('status');
             $table->integer('is_active');
             $table->timestamps();
         });
