@@ -8,4 +8,5 @@ interface ProjectServiceInterface
     public function addProject($input);
     public function editProject($input, $projectId);
     public function removeProject($projectId);
+    public function detailProject($projectId);
 }

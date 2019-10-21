@@ -50,4 +50,9 @@ class ProjectController extends BaseController
 
         return response()->json(__('message.successfully'), 200);
     }
+
+    public function getProjectById($projectId)
+    {
+        return response()->json($this->projectservice->detailProject($projectId));
+    }
 }

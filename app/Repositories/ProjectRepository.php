@@ -30,4 +30,9 @@ class ProjectRepository implements ProjectServiceInterface
     {
         return Project::where('is_active', self::IS_ACTIVE_ON)->get();
     }
+
+    public function detailProject($projectId)
+    {
+      return Project::where('id',$projectId)->get();
+    }
 }
