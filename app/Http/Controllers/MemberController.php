@@ -41,5 +41,10 @@ class MemberController extends Controller
 
         return response()->json(__('message.successfully'), 200);
     }
+
+    public function getMemberById($memberId)
+    {
+        return response()->json($this->memberService->getMember($memberId));
+    }
 }
 

@@ -11,6 +11,7 @@ Route::group((['prefix' => 'projects']), function () {
 
 Route::group((['prefix' => 'members']), function () {
     Route::get('/','MemberController@index');
+    Route::get('/{memberId}','MemberController@getMemberById');
     Route::post('add','MemberController@store');
     Route::put('{memberId}/edit','MemberController@update');
     Route::delete('{memberId}/delete','MemberController@destroy');

@@ -46,6 +46,11 @@
      {
          return Member::where('id', $memberId )->delete();
      }
+
+     public function getMember($memberId)
+     {
+         return Member::where('id', $memberId )->get();
+     }
  }
 
 

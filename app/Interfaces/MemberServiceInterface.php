@@ -8,4 +8,5 @@ interface MemberServiceInterface
     public function addMember($input);
     public function editMember($input, $memberId);
     public function removeMember($memberId);
+    public function getMember($memberId);
 }
