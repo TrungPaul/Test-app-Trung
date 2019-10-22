@@ -1,6 +1,6 @@
 <?php
 return [
-    'Xin chào' => 'Chào mừng bạn đến với Website!',
-    'Thành công' => "Thành công",
-    'Thất bại' => 'thất bại'
+    'Xin_chao' => 'Chào mừng bạn đến với Website!',
+    'Thanh_cong' => "Thành công",
+    'That_bai' => 'thất bại'
 ];
