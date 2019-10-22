@@ -18,7 +18,7 @@ class CreateMemberOfProjectTable extends Migration
             $table->bigIncrements('id');
             $table->integer('project_id');
             $table->integer('member_id');
-            $table->integer('role');
+            $table->string('role');
             $table->integer('is_active');
             $table->timestamps();
         });
