@@ -19,7 +19,7 @@ class MemberProjectRepository implements ProjectOfMemberServiceInterface
 
         if($checkExistenceOfData > self::DATA_NULL)
         {
-            return response()->json(__('message.fail'), 400);
+            return response()->json(__('message.fail'), 404);
         }
         ProjectAndMember::create($input);
 
