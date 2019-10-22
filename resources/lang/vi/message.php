@@ -1,6 +1,6 @@
 <?php
 return [
     'Welcome' => 'Chào mừng bạn đến với Website!',
-    'Success' => "Thành công",
+    'Successfully' => "Thành công",
     'fail' => 'Thất bại'
 ];
