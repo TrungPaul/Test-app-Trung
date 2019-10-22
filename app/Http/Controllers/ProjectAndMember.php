@@ -16,4 +16,11 @@ class ProjectAndMember extends Controller
     {
         return response()->json($this->projectAndMemberService->showProjectOfMember($projectId));
     }
+
+    public function store(Request $request)
+    {
+        $input = $request->all();
+
+        return response()->json($this->projectAndMemberService->addMemberIntoProject($input));
+    }
 }
