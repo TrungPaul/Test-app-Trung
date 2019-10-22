@@ -17,7 +17,7 @@ class ProjectAndMember extends Controller
         return response()->json($this->projectAndMemberService->showProjectOfMember($projectId));
     }
 
-    public function store(Request $request)
+    public function store(ProjectAndMemberRequest $request)
     {
         $input = $request->all();
 
