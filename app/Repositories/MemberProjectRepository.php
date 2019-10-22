@@ -15,11 +15,11 @@ class MemberProjectRepository implements ProjectOfMemberServiceInterface
 
     public function addMemberIntoProject($input)
     {
-        $checkData = ProjectAndMember::where('project_id', $input['project_id'])->where('member_id', $input['member_id'])->count();
+        $checkExistenceOfData = ProjectAndMember::where('project_id', $input['project_id'])->where('member_id', $input['member_id'])->count();
 
-        if($checkData > self::DATA_NULL)
+        if($checkExistenceOfData > self::DATA_NULL)
         {
-            return response()->json(__('message.fail'), 200);
+            return response()->json(__('message.fail'), 400);
         }
         ProjectAndMember::create($input);
 
