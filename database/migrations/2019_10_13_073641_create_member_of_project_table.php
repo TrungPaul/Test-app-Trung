@@ -14,11 +14,11 @@ class CreateMemberOfProjectTable extends Migration
      */
     public function up()
     {
-        Schema::create('joins', function (Blueprint $table) {
+        Schema::create('project_member', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->integer('project_id');
             $table->integer('member_id');
-            $table->integer('role');
+            $table->string('role');
             $table->integer('is_active');
             $table->timestamps();
         });
