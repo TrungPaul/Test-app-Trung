@@ -24,8 +24,8 @@ class ProjectAndMemberRequest extends FormRequest
     {
         return [
             'project_id' => 'required',
-            'member_id' => 'nullable',
-            'role' => 'required|after:today',
+            'member_id' => 'required',
+            'role' => 'required',
             'is_active' => 'required'
         ];
     }
