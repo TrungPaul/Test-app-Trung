@@ -25,4 +25,11 @@ class MemberProjectRepository implements ProjectOfMemberServiceInterface
 
         return response()->json(__('message.successfully'), 200);
     }
+
+    public function getMemberOutProject($projectId)
+    {
+        $memberOutProject =  ProjectAndMember::select('member_id')->where('project_id', $projectId)->get()->pluck('member_id')->toArray();
+
+        return Member::whereNotIn('id', $memberOutProject)->get();
+    }
 }

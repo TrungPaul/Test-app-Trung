@@ -24,4 +24,8 @@ class ProjectAndMember extends Controller
 
         return response()->json($this->projectAndMemberService->addMemberIntoProject($input));
     }
+    public function getMemberOutProject($projectId)
+    {
+        return response()->json($this->projectAndMemberService->getMemberOutProject($projectId));
+    }
 }

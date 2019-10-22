@@ -20,5 +20,6 @@ Route::group((['prefix' => 'members']), function () {
 
 Route::group((['prefix' => 'project-detail']), function () {
     Route::get('/{projectId}','ProjectAndMember@index');
+    Route::get('/member/{projectId}','ProjectAndMember@getMemberOutProject');
     Route::post('add','ProjectAndMember@store');
 });
