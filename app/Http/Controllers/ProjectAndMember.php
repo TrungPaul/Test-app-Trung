@@ -28,4 +28,24 @@ class ProjectAndMember extends Controller
     {
         return response()->json($this->projectAndMemberService->getMemberOutProject($projectId));
     }
+
+    public function update(ProjectAndMemberRequest $request, $projectId, $memberId)
+    {
+        $input = $request->all();
+        $this->projectAndMemberService->updateMemberinProject($projectId, $memberId, $input);
+
+        return response()->json(__('message.successfully'), 200);
+    }
+
+    public function destroy($projectId, $memberId)
+    {
+        $this->projectAndMemberService->deleteMemberinProject($projectId, $memberId);
+
+        return response()->json(__('message.successfully'), 200);
+    }
+
+    public function getInforMemberInProject($projectId, $memberId)
+    {
+        return response()->json($this->projectAndMemberService->getMemberInProject($projectId, $memberId));
+    }
 }

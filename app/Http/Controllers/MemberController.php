@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Interfaces\ProjectOfMemberServiceInterface;
 use Illuminate\Http\Request;
 use App\Interfaces\MemberServiceInterface;
 use App\Http\Requests\MemberRequest;
@@ -9,9 +10,10 @@ use App\Http\Requests\MemberRequest;
 class MemberController extends Controller
 {
 
-    public function __construct(MemberServiceInterface $memberService)
+    public function __construct(MemberServiceInterface $memberService ,ProjectOfMemberServiceInterface  $projectAndMemberService)
     {
         $this->memberService = $memberService;
+        $this->projectAndMemberService = $projectAndMemberService;
     }
 
     public function store(MemberRequest $request)
@@ -38,6 +40,7 @@ class MemberController extends Controller
     public function destroy($memberId)
     {
         $this->memberService->removeMember($memberId);
+        $this->projectAndMemberService->whenMenberBeDelete($memberId);
 
         return response()->json(__('message.successfully'), 200);
     }

@@ -21,5 +21,8 @@ Route::group((['prefix' => 'members']), function () {
 Route::group((['prefix' => 'project-detail']), function () {
     Route::get('/{projectId}','ProjectAndMember@index');
     Route::get('/member/{projectId}','ProjectAndMember@getMemberOutProject');
+    Route::get('/member/{projectId}','ProjectAndMember@getMemberOutProject');
     Route::post('add','ProjectAndMember@store');
+    Route::put('{prjectId}/edit/{memberId}','ProjectAndMember@update');
+    Route::delete('{prjectId}/delete/{memberId}','ProjectAndMember@destroy');
 });

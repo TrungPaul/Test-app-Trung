@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ProjectRequest;
+use App\Interfaces\ProjectOfMemberServiceInterface;
 use Illuminate\Http\Request;
 use App\Interfaces\ProjectServiceInterface;
 use App\Repositories\ProjectRepository;
@@ -15,9 +16,10 @@ class ProjectController extends BaseController
      */
     protected $projectservice;
 
-    public function __construct(ProjectServiceInterface  $projectService)
+    public function __construct(ProjectServiceInterface  $projectService, ProjectOfMemberServiceInterface  $projectAndMemberService)
     {
         $this->projectservice = $projectService;
+        $this->projectAndMemberService = $projectAndMemberService;
     }
 
     public function store(ProjectRequest $request)
@@ -47,6 +49,7 @@ class ProjectController extends BaseController
     public function destroy($projectId)
     {
         $this->projectservice->removeProject($projectId);
+        $this->projectAndMemberService->whenProjectBeDelete($projectId);
 
         return response()->json(__('message.successfully'), 200);
     }
